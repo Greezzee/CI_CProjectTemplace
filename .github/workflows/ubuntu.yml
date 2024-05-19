@@ -18,7 +18,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[ci skip]')"
 
     steps:
     - uses: actions/checkout@v4
@@ -51,10 +50,8 @@ jobs:
         cd build
         ctest -C $BUILD_TYPE -VV
 
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v4.0.1
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+    - name: Code coverage using Codecov 
+      run: bash <(curl -s https://codecov.io/bash) 
 
     - name: install project
       run: cmake --build build --target install --config Release 
