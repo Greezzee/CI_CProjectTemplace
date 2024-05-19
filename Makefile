@@ -38,7 +38,7 @@ test: ## run tests quickly with ctest
 
 coverage: ## check code coverage quickly GCC
 	rm -rf build/
-	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$(INSTALL_LOCATION) -Dbookshop_ENABLE_CODE_COVERAGE=1
+	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$(INSTALL_LOCATION) -Dbookshop_ENABLE_CODE_COVERAGE=1 -Dbookshop_VERBOSE_OUTPUT=1 -Dbookshop_ENABLE_UNIT_TESTING=1 -DbookshopTests_VERBOSE_OUTPUT=1
 	cmake --build build --config Release
 	cd build/ && ctest -C Release -VV
 	cd .. && (bash -c "find . -type f -name '*.gcno' -exec gcov -pb {} +" || true)

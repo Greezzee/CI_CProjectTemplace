@@ -57,14 +57,6 @@ foreach(file ${test_sources})
         ${GOOGLE_MOCK_LIBRARIES}
         ${${CMAKE_PROJECT_NAME}_TEST_LIB}
     )
-  elseif(${CMAKE_PROJECT_NAME}_USE_CATCH2)
-    find_package(Catch2 REQUIRED)
-    target_link_libraries(
-      ${test_name}_Tests
-      PUBLIC
-        Catch2::Catch2
-        ${${CMAKE_PROJECT_NAME}_TEST_LIB}
-    )
   else()
     message(FATAL_ERROR "Unknown testing library. Please setup your desired unit testing library by using `target_link_libraries`.")  
   endif()

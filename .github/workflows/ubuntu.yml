@@ -50,18 +50,10 @@ jobs:
         cd build
         ctest -C $BUILD_TYPE -VV
 
-    - name: collect coverage
-      run: |
-        make coverage
-        pwd
-        gcov -b ./build/CMakeFiles/bookshop.dir/src/*.gcno
-        ls
-
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: ./build
 
     - name: install project
       run: cmake --build build --target install --config Release 
