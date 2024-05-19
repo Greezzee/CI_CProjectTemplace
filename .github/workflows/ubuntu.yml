@@ -39,8 +39,11 @@ jobs:
         cmake --build build --config Release
         cmake --build build --target install --config Release
 
+    - name: install coverage
+      run: pip install coverage
+
     - name: configure
-      run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -DBookshop_ENABLE_CODE_COVERAGE=1
+      run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -Dbookshop_ENABLE_CODE_COVERAGE=1
       
     - name: build
       run: cmake --build build --config $BUILD_TYPE -j4
