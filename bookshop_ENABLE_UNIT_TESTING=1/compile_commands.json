@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/mnt/d/Study/Verification/verif_test2/bookshop_ENABLE_UNIT_TESTING=1",
+  "command": "/usr/bin/c++  -I/mnt/d/Study/Verification/verif_test2/include -I/mnt/d/Study/Verification/verif_test2/src -O3 -DNDEBUG -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -Wpedantic -Wconversion -Wsign-conversion -Wnull-dereference -Wdouble-promotion -Wformat=2 -Wmisleading-indentation -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wuseless-cast -o CMakeFiles/bookshop.dir/src/tmp.cpp.o -c /mnt/d/Study/Verification/verif_test2/src/tmp.cpp",
+  "file": "/mnt/d/Study/Verification/verif_test2/src/tmp.cpp"
+},
+{
+  "directory": "/mnt/d/Study/Verification/verif_test2/bookshop_ENABLE_UNIT_TESTING=1/test",
+  "command": "/usr/bin/c++  -I/mnt/d/Study/Verification/verif_test2/include -O3 -DNDEBUG -Wall -Wextra -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wunused -Woverloaded-virtual -Wpedantic -Wconversion -Wsign-conversion -Wnull-dereference -Wdouble-promotion -Wformat=2 -Wmisleading-indentation -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wuseless-cast -o CMakeFiles/tmp_test_Tests.dir/src/tmp_test.cpp.o -c /mnt/d/Study/Verification/verif_test2/test/src/tmp_test.cpp",
+  "file": "/mnt/d/Study/Verification/verif_test2/test/src/tmp_test.cpp"
+}
+]
