@@ -31,15 +31,23 @@ help:
 	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 test: ## run tests quickly with ctest
+	echo test
 	rm -rf build/
 	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$(INSTALL_LOCATION) -Dbookshop_ENABLE_UNIT_TESTING=1 -DCMAKE_BUILD_TYPE="Release"
 	cmake --build build --config Release
 	cd build/ && ctest -C Release -VV
 
 coverage: ## check code coverage quickly GCC
+	echo coverage
 	rm -rf build/
-	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$(INSTALL_LOCATION) -Dbookshop_ENABLE_CODE_COVERAGE=1 -Dbookshop_VERBOSE_OUTPUT=1 -Dbookshop_ENABLE_UNIT_TESTING=1 -DbookshopTests_VERBOSE_OUTPUT=1
+	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$(INSTALL_LOCATION) -Dbookshop_ENABLE_CODE_COVERAGE=1 -Dbookshop_VERBOSE_OUTPUT=1 -Dbookshop_ENABLE_UNIT_TESTING=1 -DbookshopTests_VERBOSE_OUTPUT=1 -Dbookshop_ENABLE_CPPCHECK=1
 	cmake --build build --config Release
 	cd build/ && ctest -C Release -VV
 	cd .. && (bash -c "find . -type f -name '*.gcno' -exec gcov -pb {} +" || true)
 
+cppcheck:
+	echo cppcheck
+	rm -rf build/
+	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$(INSTALL_LOCATION) -Dbookshop_ENABLE_CPPCHECK=1
+	cmake --build build --config Release
+	cd build/ && ctest -C Release -VV

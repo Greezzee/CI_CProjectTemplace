@@ -39,9 +39,16 @@ jobs:
         cmake --build build --config Release
         cmake --build build --target install --config Release
 
-    - name: install coverage
-      run: pip install coverage
+    - name: install deps
+      run: |
+        pip install coverage
+        sudo apt-get install cppcheck
 
+    - name: static analysis
+      run: |
+        cppcheck src
+        cppcheck test
+    
     - name: configure
       run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -Dbookshop_ENABLE_CODE_COVERAGE=1
       
@@ -55,7 +62,4 @@ jobs:
 
     - name: Code coverage using Codecov 
       run: bash <(curl -s https://codecov.io/bash) -t 9b96dc61-c7eb-49ba-92d1-aacbfcb0cd12
-
-    - name: install project
-      run: cmake --build build --target install --config Release 
 
