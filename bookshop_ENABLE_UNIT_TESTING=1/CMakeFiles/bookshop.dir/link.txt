@@ -1,2 +1,0 @@
-/usr/bin/ar qc lib/Release/libbookshop.a CMakeFiles/bookshop.dir/src/tmp.cpp.o
-/usr/bin/ranlib lib/Release/libbookshop.a

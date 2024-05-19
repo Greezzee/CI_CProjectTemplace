@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/tmp_test_Tests.dir/src/tmp_test.cpp.o -o tmp_test_Tests  ../lib/Release/libbookshop.a /usr/lib/libgtest_main.a /usr/lib/libgtest.a 
