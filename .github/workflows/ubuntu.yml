@@ -51,7 +51,7 @@ jobs:
         ctest -C $BUILD_TYPE -VV
 
     - name: collect coverage
-      run: cd .. && (bash -c "find . -type f -name '*.gcno' -exec gcov -pb {} +" || true)
+      run: bash -c "find . -type f -name '*.gcno' -exec gcov -pb {} +"
 
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v4.0.1
