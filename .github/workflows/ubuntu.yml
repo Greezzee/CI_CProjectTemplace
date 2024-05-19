@@ -53,8 +53,9 @@ jobs:
     - name: collect coverage
       run: |
         pwd
-        find . -type f -name *.gcno
-        bash -c "find . -type f -name '*.gcno' -exec gcov -pb {} +"
+        cd ..
+        pwd
+        gcov -b ./build/CMakeFiles/bookshop.dir/src/*.gcno
         ls
 
     - name: Upload coverage reports to Codecov
