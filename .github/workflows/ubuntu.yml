@@ -50,7 +50,7 @@ jobs:
         cppcheck test
     
     - name: configure
-      run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -Dbookshop_ENABLE_CODE_COVERAGE=1
+      run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -Dbookshop_ENABLE_CODE_COVERAGE=1 -Dbookshop_ENABLE_UNIT_TESTING=1
       
     - name: build
       run: cmake --build build --config $BUILD_TYPE -j4
