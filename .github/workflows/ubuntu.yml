@@ -53,8 +53,8 @@ jobs:
     - name: collect coverage
       run: |
         pwd
-        find . -type f -name '*.gcno'
-        bash -c "find . -type f -name '*.gcno' -exec gcov -pb {}"
+        find . -type f -name *.gcno
+        bash -c "find . -type f -name '*.gcno' -exec gcov -pb {} +"
         ls
 
     - name: Upload coverage reports to Codecov
