@@ -50,8 +50,14 @@ jobs:
         cd build
         ctest -C $BUILD_TYPE -VV
 
-    - name: Code coverage using Codecov 
-      run: bash <(curl -s https://codecov.io/bash) 
+    - name: collect coverage
+      run: cd .. && (bash -c "find . -type f -name '*.gcno' -exec gcov -pb {} +" || true)
+
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        files: ./build
 
     - name: install project
       run: cmake --build build --target install --config Release 

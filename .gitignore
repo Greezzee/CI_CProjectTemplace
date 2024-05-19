@@ -3,7 +3,7 @@
 CMakeCache.*
 CMakeFiles/*
 [Tt]esting/*
-googletest/*
+googletest/
 
 ### VisualStudioCode ###
 .vscode/*
