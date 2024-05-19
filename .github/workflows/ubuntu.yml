@@ -52,6 +52,7 @@ jobs:
 
     - name: collect coverage
       run: |
+        make coverage
         pwd
         gcov -b ./build/CMakeFiles/bookshop.dir/src/*.gcno
         ls
