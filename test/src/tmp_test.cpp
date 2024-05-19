@@ -4,7 +4,7 @@
 
 TEST(TmpAddTest, CheckValues)
 {
-  ASSERT_EQ(tmp::add(1, 2), 3);
+  ASSERT_EQ(tmp::add(1, 2), 4);
   EXPECT_TRUE(true);
 }
 
