@@ -3,9 +3,9 @@
 int f(int a) {
     int* b = new int;
     *b = a;
-    return *b;
+    return b;
 }
 
 int tmp::add(int a, int b) {
-    return f(a) + b;
+    return *f(a) + b;
 }
