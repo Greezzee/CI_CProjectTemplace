@@ -29,6 +29,16 @@ jobs:
         path: ${{ github.workspace }}/${{ env.INSTALL_LOCATION }}
         key: ${{ runner.os }}-dependencies
 
+    - name: install deps
+      run: |
+        pip install coverage
+        sudo apt-get install cppcheck
+
+    - name: static analysis
+      run: |
+        cppcheck src --error-exitcode=1
+        cppcheck test --error-exitcode=1
+    
     - name: install GoogleTest
       if: ${{ steps.cache.output.cache-hit != 'true' }}
       run: |
@@ -39,17 +49,6 @@ jobs:
         cmake --build build --config Release
         cmake --build build --target install --config Release
 
-    - name: install deps
-      run: |
-        pip install coverage
-        sudo apt-get install cppcheck
-        sudo apt install valgrind
-
-    - name: static analysis
-      run: |
-        cppcheck src --error-exitcode=1
-        cppcheck test --error-exitcode=1
-    
     - name: configure
       run: cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$GITHUB_WORKSPACE/$INSTALL_LOCATION -Dbookshop_ENABLE_CODE_COVERAGE=1 -Dbookshop_ENABLE_UNIT_TESTING=1 -Dbookshop_USE_ASAN=1
       
