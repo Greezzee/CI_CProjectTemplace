@@ -44,3 +44,6 @@ if(BUILD_SHARED_LIBS)
   set(CMAKE_CXX_VISIBILITY_PRESET hidden)
   set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 endif()
+
+# Using ASAN for tests
+option(${PROJECT_NAME}_USE_ASAN "Enable using valgrind in tests" OFF)

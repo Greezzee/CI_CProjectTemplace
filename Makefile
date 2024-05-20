@@ -51,3 +51,10 @@ cppcheck:
 	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$(INSTALL_LOCATION) -Dbookshop_ENABLE_CPPCHECK=1
 	cmake --build build --config Release
 	cd build/ && ctest -C Release -VV
+
+test_asan:
+	echo test_asan
+	rm -rf build/
+	cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$(INSTALL_LOCATION) -Dbookshop_ENABLE_UNIT_TESTING=1 -DCMAKE_BUILD_TYPE="Release" -Dbookshop_USE_ASAN=1
+	cmake --build build --config Release
+	cd build/ && ctest -C Release -VV
