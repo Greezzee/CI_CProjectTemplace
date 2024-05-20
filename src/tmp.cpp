@@ -1,11 +1,11 @@
 #include "bookshop/tmp.hpp"
 
 int f(int a) {
-    int* b;
+    int* b = new int;
     *b = a;
     return *b;
 }
 
 int tmp::add(int a, int b) {
-    return a + b;
+    return f(a) + b;
 }
